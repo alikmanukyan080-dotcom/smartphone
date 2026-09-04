@@ -826,5 +826,4 @@
   background: var(--white);
 }
 .stars { color: var(--warning); font-size: 14px; letter-spacing: 1px; }
-CSSEOF
-echo "css written"
+
