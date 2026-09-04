@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export default function AdminDashboard() {
+  const { t } = useLanguage();
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
@@ -11,21 +13,20 @@ export default function AdminDashboard() {
 
   const cards = stats
     ? [
-        ['Total Products', stats.totalProducts],
-        ['Total Orders', stats.totalOrders],
-        ['Pending Orders', stats.pendingOrders],
-        ['Completed Orders', stats.completedOrders],
-        ['Cancelled Orders', stats.cancelledOrders],
-        ['Total Revenue', `$${stats.totalRevenue.toFixed(2)}`],
-        ['Low Stock', stats.lowStock],
-        ["Today's Orders", stats.todaysOrders]
+        [t('stat_total_products'), stats.totalProducts],
+        [t('stat_total_orders'), stats.totalOrders],
+        [t('stat_pending_orders'), stats.pendingOrders],
+        [t('stat_completed_orders'), stats.completedOrders],
+        [t('stat_cancelled_orders'), stats.cancelledOrders],
+        [t('stat_total_revenue'), `$${stats.totalRevenue.toFixed(2)}`],
+        [t('stat_low_stock'), stats.lowStock],
+        [t('stat_todays_orders'), stats.todaysOrders]
       ]
     : [];
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>Dashboard</h2>
-
+      <h2 style={{ marginBottom: 24 }}>{t('admin_dashboard')}</h2>
       <div className="stat-grid">
         {stats
           ? cards.map(([label, value]) => (
@@ -38,17 +39,16 @@ export default function AdminDashboard() {
               <div className="skeleton" style={{ height: 84 }} key={i} />
             ))}
       </div>
-
       <div className="grid grid-2">
         <div>
           <div className="flex-between" style={{ marginBottom: 14 }}>
-            <h4>Recent Orders</h4>
-            <Link to="/admin/orders" className="btn btn-ghost btn-sm">View all →</Link>
+            <h4>{t('recent_orders')}</h4>
+            <Link to="/admin/orders" className="btn btn-ghost btn-sm">{t('view_all')}</Link>
           </div>
           <div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
-                <tr><th>Order #</th><th>Customer</th><th>Total</th><th>Status</th></tr>
+                <tr><th>{t('order_number')}</th><th>{t('th_customer')}</th><th>{t('th_total')}</th><th>{t('th_status')}</th></tr>
               </thead>
               <tbody>
                 {stats?.recentOrders.map((o) => (
@@ -63,13 +63,12 @@ export default function AdminDashboard() {
             </table>
           </div>
         </div>
-
         <div>
-          <h4 style={{ marginBottom: 14 }}>Popular Phones</h4>
+          <h4 style={{ marginBottom: 14 }}>{t('popular_phones')}</h4>
           <div className="admin-table-wrap">
             <table className="admin-table">
               <thead>
-                <tr><th>Phone</th><th>Sold</th><th>Price</th></tr>
+                <tr><th>{t('th_phone_name')}</th><th>{t('th_sold')}</th><th>{t('th_price')}</th></tr>
               </thead>
               <tbody>
                 {stats?.popularPhones.map((p) => (
