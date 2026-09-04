@@ -193,7 +193,21 @@ export const translations = {
     th_total: 'Ընդամենը',
     th_status: 'Կարգավիճակ',
     btn_view: 'Դիտել',
-    no_orders_yet: 'Պատվերներ դեռ չկան'
+    no_orders_yet: 'Պատվերներ դեռ չկան',
+    stat_total_products: 'Ընդհանուր ապրանքներ',
+    stat_total_orders: 'Ընդհանուր պատվերներ',
+    stat_pending_orders: 'Սպասող պատվերներ',
+    stat_completed_orders: 'Ավարտված պատվերներ',
+    stat_cancelled_orders: 'Չեղարկված պատվերներ',
+    stat_total_revenue: 'Ընդհանուր եկամուտ',
+    stat_low_stock: 'Քիչ մնացորդ',
+    stat_todays_orders: 'Այսօրվա պատվերները',
+    recent_orders: 'Վերջին պատվերները',
+    view_all: 'Տեսնել բոլորը →',
+    popular_phones: 'Հանրաճանաչ հեռախոսներ',
+    th_phone_name: 'Հեռախոս',
+    th_sold: 'Վաճառված',
+    th_price: 'Գին'
   },
 
   ru: {
@@ -370,7 +384,21 @@ export const translations = {
     th_total: 'Итого',
     th_status: 'Статус',
     btn_view: 'Просмотр',
-    no_orders_yet: 'Заказов пока нет'
+    no_orders_yet: 'Заказов пока нет',
+    stat_total_products: 'Всего товаров',
+    stat_total_orders: 'Всего заказов',
+    stat_pending_orders: 'Ожидающие заказы',
+    stat_completed_orders: 'Завершённые заказы',
+    stat_cancelled_orders: 'Отменённые заказы',
+    stat_total_revenue: 'Общий доход',
+    stat_low_stock: 'Мало на складе',
+    stat_todays_orders: 'Заказы за сегодня',
+    recent_orders: 'Последние заказы',
+    view_all: 'Смотреть все →',
+    popular_phones: 'Популярные телефоны',
+    th_phone_name: 'Телефон',
+    th_sold: 'Продано',
+    th_price: 'Цена'
   },
 
   en: {
@@ -547,6 +575,20 @@ export const translations = {
     th_total: 'Total',
     th_status: 'Status',
     btn_view: 'View',
-    no_orders_yet: 'No orders yet'
+    no_orders_yet: 'No orders yet',
+    stat_total_products: 'Total Products',
+    stat_total_orders: 'Total Orders',
+    stat_pending_orders: 'Pending Orders',
+    stat_completed_orders: 'Completed Orders',
+    stat_cancelled_orders: 'Cancelled Orders',
+    stat_total_revenue: 'Total Revenue',
+    stat_low_stock: 'Low Stock',
+    stat_todays_orders: "Today's Orders",
+    recent_orders: 'Recent Orders',
+    view_all: 'View all →',
+    popular_phones: 'Popular Phones',
+    th_phone_name: 'Phone',
+    th_sold: 'Sold',
+    th_price: 'Price'
   }
 };
