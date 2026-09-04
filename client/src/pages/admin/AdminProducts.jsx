@@ -2,40 +2,33 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import { useToast } from '../../context/ToastContext.jsx';
-
 export default function AdminProducts() {
   const [products, setProducts] = useState(null);
   const [search, setSearch] = useState('');
   const { showToast } = useToast();
-
   function load() {
     api.get('/products', { params: { all: true, search: search || undefined, limit: 60 } }).then((res) => setProducts(res.data.items));
   }
-
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
-
   async function toggleVisibility(id) {
     await api.patch(`/products/${id}/visibility`);
     showToast('Product visibility updated');
     load();
   }
-
   async function duplicate(id) {
     await api.post(`/products/${id}/duplicate`);
     showToast('Product duplicated');
     load();
   }
-
   async function remove(id) {
     if (!window.confirm('Delete this product permanently?')) return;
     await api.delete(`/products/${id}`);
     showToast('Product deleted');
     load();
   }
-
   return (
     <div>
       <div className="admin-toolbar">
@@ -50,7 +43,6 @@ export default function AdminProducts() {
           <Link to="/admin/products/new" className="btn btn-primary">+ Add Product</Link>
         </div>
       </div>
-
       <div className="admin-table-wrap">
         <table className="admin-table">
           <thead>
@@ -61,9 +53,11 @@ export default function AdminProducts() {
           <tbody>
             {products?.map((p) => (
               <tr key={p._id}>
-                <td className="flex gap-12" style={{ alignItems: 'center' }}>
-                  <img src={p.images?.[0] || p.colors?.[0]?.images?.[0]} alt="" style={{ width: 40, height: 40, borderRadius: 6, objectFit: 'cover' }} />
-                  {p.title}
+                <td>
+                  <div className="flex gap-12" style={{ alignItems: 'center' }}>
+                    <img src={p.images?.[0] || p.colors?.[0]?.images?.[0]} alt="" style={{ width: 40, height: 40, borderRadius: 6, objectFit: 'cover' }} />
+                    {p.title}
+                  </div>
                 </td>
                 <td>{p.brand?.name}</td>
                 <td>${p.price?.toFixed(2)}</td>
