@@ -5,7 +5,7 @@ export default function ProtectedRoute({ children }) {
   const { admin, loading } = useAdminAuth();
 
   if (loading) {
-    return <div className="flex-center" style={{ minHeight: '100vh' }}>Loading…</div>;
+    return <div className="flex-center" >Loading…</div>;
   }
   if (!admin) {
     return <Navigate to="/admin/login" replace />;
