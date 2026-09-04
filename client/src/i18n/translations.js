@@ -21,7 +21,7 @@ export const translations = {
     // Hero
     hero_eyebrow: '// ՊրԵՄԻՈՒՄ ՀԵՌԱԽՈՍՆԵՐԻ ԽԱՆՈՒԹ',
     hero_title: 'Գտիր քո հաջորդ հեռախոսը',
-    hero_lead: 'Флագman և մատչելի հեռախոսներ Apple-ից, Samsung-ից, Xiaomi-ից, Google-ից, OnePlus-ից և ուրիշներից — յուրաքանչյուր սարք պաշտոնական երաշխիքով և արագ առաքումով։',
+    hero_lead: 'Флагман և մատչելի հեռախոսներ Apple-ից, Samsung-ից, Xiaomi-ից, Google-ից, OnePlus-ից և ուրիշներից — յուրաքանչյուր սարք պաշտոնական երաշխիքով և արագ առաքումով։',
     hero_shop_now: 'Գնումներ',
     hero_explore: 'Դիտել բրենդները',
 
@@ -172,7 +172,28 @@ export const translations = {
 
     // 404 / about / contact
     not_found_title: 'Էջը չի գտնվել',
-    back_home: 'Վերադառնալ գլխավոր էջ'
+    back_home: 'Վերադառնալ գլխավոր էջ',
+
+    // Admin panel
+    admin_dashboard: 'Վահանակ',
+    admin_products: 'Ապրանքներ',
+    admin_orders: 'Պատվերներ',
+    admin_brands: 'Բրենդներ',
+    admin_categories: 'Կատեգորիաներ',
+    admin_chatbot: 'Չաթբոտ',
+    admin_logout: 'Դուրս գալ',
+    admin_signed_in_as: 'Մուտք գործած է որպես',
+    orders_title: 'Պատվերներ',
+    orders_search_placeholder: 'Փնտրել պատվերներ…',
+    orders_all_statuses: 'Բոլոր կարգավիճակները',
+    order_number: 'Պատվեր #',
+    th_customer: 'Հաճախորդ',
+    th_phone: 'Հեռախոս',
+    th_date: 'Ամսաթիվ',
+    th_total: 'Ընդամենը',
+    th_status: 'Կարգավիճակ',
+    btn_view: 'Դիտել',
+    no_orders_yet: 'Պատվերներ դեռ չկան'
   },
 
   ru: {
@@ -328,7 +349,28 @@ export const translations = {
     chat_error: 'Извините, проблема с подключением. Попробуйте чуть позже.',
 
     not_found_title: 'Страница не найдена',
-    back_home: 'На главную'
+    back_home: 'На главную',
+
+    // Admin panel
+    admin_dashboard: 'Панель',
+    admin_products: 'Товары',
+    admin_orders: 'Заказы',
+    admin_brands: 'Бренды',
+    admin_categories: 'Категории',
+    admin_chatbot: 'Чат-бот',
+    admin_logout: 'Выйти',
+    admin_signed_in_as: 'Вход выполнен как',
+    orders_title: 'Заказы',
+    orders_search_placeholder: 'Поиск заказов…',
+    orders_all_statuses: 'Все статусы',
+    order_number: 'Заказ №',
+    th_customer: 'Клиент',
+    th_phone: 'Телефон',
+    th_date: 'Дата',
+    th_total: 'Итого',
+    th_status: 'Статус',
+    btn_view: 'Просмотр',
+    no_orders_yet: 'Заказов пока нет'
   },
 
   en: {
@@ -484,6 +526,27 @@ export const translations = {
     chat_error: "Sorry, I'm having trouble connecting right now. Please try again shortly.",
 
     not_found_title: 'Page not found',
-    back_home: 'Back to Home'
+    back_home: 'Back to Home',
+
+    // Admin panel
+    admin_dashboard: 'Dashboard',
+    admin_products: 'Products',
+    admin_orders: 'Orders',
+    admin_brands: 'Brands',
+    admin_categories: 'Categories',
+    admin_chatbot: 'Chatbot',
+    admin_logout: 'Log Out',
+    admin_signed_in_as: 'Signed in as',
+    orders_title: 'Orders',
+    orders_search_placeholder: 'Search orders…',
+    orders_all_statuses: 'All statuses',
+    order_number: 'Order #',
+    th_customer: 'Customer',
+    th_phone: 'Phone',
+    th_date: 'Date',
+    th_total: 'Total',
+    th_status: 'Status',
+    btn_view: 'View',
+    no_orders_yet: 'No orders yet'
   }
 };
