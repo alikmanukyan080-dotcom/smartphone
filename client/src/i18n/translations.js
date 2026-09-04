@@ -232,7 +232,7 @@ export const translations = {
     toast_brand_delete_error: 'Հնարավոր չէ ջնջել բրենդը',
     confirm_delete_brand: 'Ջնջե՞լ այս բրենդը։ Հնարավոր է միայն, եթե ոչ մի ապրանք չի օգտագործում այն։'
   },
-  },
+ 
 
   ru: {
     nav_home: 'Главная',
@@ -447,7 +447,7 @@ export const translations = {
     toast_brand_delete_error: 'Не удалось удалить бренд',
     confirm_delete_brand: 'Удалить этот бренд? Возможно, только если ни один товар его не использует.'
   },
-  },
+
 
   en: {
     nav_home: 'Home',
@@ -663,5 +663,4 @@ export const translations = {
     confirm_delete_brand: 'Delete this brand? Only possible if no products use it.'
   }
 };
-  }
-};
+
