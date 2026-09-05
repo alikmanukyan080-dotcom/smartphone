@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
 import { useToast } from '../../context/ToastContext.jsx';
 import { useLanguage } from '../../context/LanguageContext.jsx';
@@ -9,6 +9,7 @@ const STATUSES = ['NEW', 'CONFIRMED', 'PROCESSING', 'READY', 'DELIVERED', 'CANCE
 export default function AdminOrderDetails() {
   const { id } = useParams();
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [order, setOrder] = useState(null);
   const [notify, setNotify] = useState(true);
   const { showToast } = useToast();
@@ -28,13 +29,29 @@ export default function AdminOrderDetails() {
     load();
   }
 
+  async function handleDelete() {
+    if (!window.confirm(t('confirm_delete_order'))) return;
+    try {
+      await api.delete(`/orders/${id}`);
+      showToast(t('toast_order_deleted'));
+      navigate('/admin/orders');
+    } catch (err) {
+      showToast(err.response?.data?.message || t('toast_order_delete_error'), 'error');
+    }
+  }
+
   if (!order) return <div>{t('loading_text')}</div>;
 
   return (
     <div>
       <div className="admin-toolbar">
         <h2 className="mono">{order.orderNumber}</h2>
-        <span className={`status-pill status-${order.status.toLowerCase()}`}>{order.status}</span>
+        <div className="flex gap-12" style={{ alignItems: 'center' }}>
+          <span className={`status-pill status-${order.status.toLowerCase()}`}>{order.status}</span>
+          <button className="btn btn-outline btn-sm" style={{ color: 'var(--signal)', borderColor: 'var(--signal)' }} onClick={handleDelete}>
+            {t('btn_delete')}
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-2" style={{ marginBottom: 24 }}>
