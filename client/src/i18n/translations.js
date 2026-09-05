@@ -184,6 +184,9 @@ export const translations = {
     th_status: 'Կարգավիճակ',
     btn_view: 'Դիտել',
     no_orders_yet: 'Պատվերներ դեռ չկան',
+    confirm_delete_order: 'Ջնջե՞լ այս պատվերն ընդմիշտ։ Այս գործողությունը հնարավոր չէ հետարկել։',
+    toast_order_deleted: 'Պատվերը ջնջվել է',
+    toast_order_delete_error: 'Հնարավոր չէ ջնջել պատվերը',
 
     stat_total_products: 'Ընդհանուր ապրանքներ',
     stat_total_orders: 'Ընդհանուր պատվերներ',
@@ -509,6 +512,9 @@ export const translations = {
     th_status: 'Статус',
     btn_view: 'Просмотр',
     no_orders_yet: 'Заказов пока нет',
+    confirm_delete_order: 'Удалить этот заказ навсегда? Это действие нельзя отменить.',
+    toast_order_deleted: 'Заказ удалён',
+    toast_order_delete_error: 'Не удалось удалить заказ',
 
     stat_total_products: 'Всего товаров',
     stat_total_orders: 'Всего заказов',
@@ -834,6 +840,9 @@ export const translations = {
     th_status: 'Status',
     btn_view: 'View',
     no_orders_yet: 'No orders yet',
+    confirm_delete_order: 'Delete this order permanently? This action cannot be undone.',
+    toast_order_deleted: 'Order deleted',
+    toast_order_delete_error: 'Could not delete order',
 
     stat_total_products: 'Total Products',
     stat_total_orders: 'Total Orders',
