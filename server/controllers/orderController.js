@@ -233,11 +233,23 @@ async function getDashboardStats(req, res, next) {
   }
 }
 
+// DELETE /api/orders/:id  (admin only)
+async function deleteOrder(req, res, next) {
+  try {
+    const order = await Order.findByIdAndDelete(req.params.id);
+    if (!order) return res.status(404).json({ message: 'Order not found' });
+    res.json({ message: 'Order deleted' });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   createOrder,
   getOrders,
   getOrderById,
   getOrderByNumber,
   updateOrderStatus,
-  getDashboardStats
+  getDashboardStats,
+  deleteOrder
 };
