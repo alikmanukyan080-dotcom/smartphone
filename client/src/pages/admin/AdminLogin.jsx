@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../../context/AdminAuthContext.jsx';
+import { useLanguage } from '../../context/LanguageContext.jsx';
 
 export default function AdminLogin() {
   const { login } = useAdminAuth();
+  const { t, language, setLanguage, languages } = useLanguage();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +20,7 @@ export default function AdminLogin() {
       await login(email, password);
       navigate('/admin/dashboard');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed');
+      setError(err.response?.data?.message || t('login_failed'));
     } finally {
       setLoading(false);
     }
@@ -27,24 +29,38 @@ export default function AdminLogin() {
   return (
     <div className="admin-login-page">
       <div className="admin-login-card">
-        <div className="admin-logo" style={{ color: 'var(--ink)', marginBottom: 8 }}>
-          NOVA<span>ADMIN</span>
+        <div className="flex-between" style={{ marginBottom: 8 }}>
+          <div className="admin-logo" style={{ color: 'var(--ink)' }}>
+            NOVA<span>ADMIN</span>
+          </div>
+          <div className="lang-switcher">
+            {languages.map((l) => (
+              <button
+                key={l.code}
+                type="button"
+                className={`lang-btn ${language === l.code ? 'active' : ''}`}
+                onClick={() => setLanguage(l.code)}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
         </div>
         <p className="text-muted" style={{ marginBottom: 24, fontSize: 14 }}>
-          Sign in to manage your store.
+          {t('login_subtitle')}
         </p>
         <form onSubmit={handleSubmit}>
           <div className="field">
-            <label>Email</label>
+            <label>{t('field_email')}</label>
             <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="field">
-            <label>Password</label>
+            <label>{t('field_password')}</label>
             <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
           {error && <p className="field-error" style={{ marginBottom: 12 }}>{error}</p>}
           <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
-            {loading ? 'Signing in…' : 'Sign In'}
+            {loading ? t('btn_signing_in') : t('btn_sign_in')}
           </button>
         </form>
       </div>
