@@ -27,7 +27,7 @@ function getTransporter() {
 
 async function sendMail({ to, subject, html }) {
   const t = getTransporter();
-  const from = `"${process.env.STORE_NAME || 'Nova Mobile'}" <${process.env.SMTP_USER || 'no-reply@example.com'}>`;
+  const from = `"${process.env.STORE_NAME || 'Telvix'}" <${process.env.SMTP_USER || 'no-reply@example.com'}>`;
 
   if (!t) {
     console.log('----- EMAIL (SMTP not configured, printed instead) -----');
@@ -61,14 +61,14 @@ function baseWrapper(title, bodyHtml) {
   <div style="background:#0E1013;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
     <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;">
       <div style="background:#0E1013;padding:24px 32px;">
-        <span style="color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:0.5px;">NOVA MOBILE</span>
+        <span style="color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:0.5px;">Telvix</span>
       </div>
       <div style="padding:32px;color:#1A1D21;">
         <h2 style="margin-top:0;color:#0E1013;">${title}</h2>
         ${bodyHtml}
       </div>
       <div style="background:#F5F4F1;padding:20px 32px;color:#6B7280;font-size:12px;">
-        Nova Mobile · Premium Smartphones · Official Warranty on all devices
+        Telvix · Premium Smartphones · Official Warranty on all devices
       </div>
     </div>
   </div>`;

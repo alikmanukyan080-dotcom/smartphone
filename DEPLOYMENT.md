@@ -1,4 +1,4 @@
-# Deploying Nova Mobile to a Real Domain (Free Tier)
+# Deploying Telvix to a Real Domain (Free Tier)
 
 This uses 3 free services: **MongoDB Atlas** (database), **Render** (backend API),
 **Vercel** (frontend). You need your own free accounts on each — I can't create these
@@ -63,7 +63,7 @@ Keep this string — it's your `MONGODB_URI`.
    | `SMTP_USER` | your SMTP user, or leave blank |
    | `SMTP_PASS` | your SMTP password, or leave blank |
    | `STORE_EMAIL` | your store's email, or leave blank |
-   | `STORE_NAME` | `Nova Mobile` |
+   | `STORE_NAME` | `Telvix` |
    | `DELIVERY_FEE` | `5.99` |
    | `FREE_DELIVERY_THRESHOLD` | `200` |
 5. Click **Create Web Service**. Wait for the build to finish.

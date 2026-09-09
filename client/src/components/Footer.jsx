@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span className="text-muted">© {new Date().getFullYear()} Nova Mobile. {t('footer_rights')}</span>
+        <span className="text-muted">© {new Date().getFullYear()} Telvix. {t('footer_rights')}</span>
       </div>
     </footer>
   );

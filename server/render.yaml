@@ -32,7 +32,7 @@ services:
       - key: STORE_EMAIL
         sync: false
       - key: STORE_NAME
-        value: "Nova Mobile"
+        value: "Telvix"
       - key: DELIVERY_FEE
         value: 5.99
       - key: FREE_DELIVERY_THRESHOLD

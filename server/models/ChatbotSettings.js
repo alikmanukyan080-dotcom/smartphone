@@ -13,7 +13,7 @@ const chatbotSettingsSchema = new mongoose.Schema(
     enabled: { type: Boolean, default: true },
     welcomeMessage: {
       type: String,
-      default: "Hi! 👋 I'm the Nova Mobile assistant. Ask me about phones, prices, colors, storage, delivery, or your order."
+      default: "Hi! 👋 I'm the Telvix assistant. Ask me about phones, prices, colors, storage, delivery, or your order."
     },
     quickQuestions: {
       type: [String],
@@ -32,7 +32,7 @@ const chatbotSettingsSchema = new mongoose.Schema(
     },
     storeInfo: {
       type: String,
-      default: 'Nova Mobile is a premium smartphone retailer offering official warranty on every device.'
+      default: 'Telvix is a premium smartphone retailer offering official warranty on every device.'
     }
   },
   { timestamps: true }

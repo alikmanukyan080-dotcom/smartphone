@@ -1,4 +1,4 @@
-# Nova Mobile — Premium Smartphone Store (Full Stack)
+# Telvix — Premium Smartphone Store (Full Stack)
 
 A complete MERN e-commerce application for a smartphone store: dynamic product catalog with
 color/storage variants, cart, checkout, order emails, an admin panel that controls the entire
@@ -54,7 +54,7 @@ SMTP_SECURE=false
 SMTP_USER=you@example.com
 SMTP_PASS=your-app-password
 STORE_EMAIL=owner@example.com
-STORE_NAME="Nova Mobile"
+STORE_NAME="Telvix"
 
 DELIVERY_FEE=5.99
 FREE_DELIVERY_THRESHOLD=200
