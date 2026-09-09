@@ -17,6 +17,8 @@
   --white: #ffffff;
   --signal: #2563eb;
   --signal-dark: #1d4ed8;
+  --violet: #7c3aed;
+  --amber: #f59e0b;
   --success: #16a34a;
   --warning: #d97706;
   --border-light: #e2e8f0;
@@ -53,7 +55,12 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: var(--paper);
+  background:
+    radial-gradient(1100px 600px at 8% -8%, rgba(37, 99, 235, 0.07), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(124, 58, 237, 0.06), transparent 50%),
+    radial-gradient(800px 500px at 50% 100%, rgba(245, 158, 11, 0.045), transparent 55%),
+    var(--paper);
+  background-attachment: fixed;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
@@ -221,10 +228,10 @@ input, select, textarea {
 }
 .badge-new { background: var(--ink); color: var(--white); }
 .badge-sale { background: var(--signal); color: var(--white); }
-.badge-popular { background: var(--warning); color: var(--ink); }
+.badge-popular { background: var(--amber); color: var(--ink); }
 .badge-best_seller { background: var(--success); color: var(--white); }
-.badge-limited { background: var(--steel); color: var(--white); }
-.badge-featured { background: var(--titanium-light); color: var(--ink); }
+.badge-limited { background: var(--violet); color: var(--white); }
+.badge-featured { background: linear-gradient(135deg, var(--signal), var(--violet)); color: var(--white); }
 
 /* -------------------- Cards / surfaces -------------------- */
 .card {
@@ -249,7 +256,10 @@ input, select, textarea {
   color: var(--white);
 }
 .section-dim {
-  background: var(--paper-dim);
+  background:
+    radial-gradient(700px 400px at 15% 0%, rgba(37, 99, 235, 0.05), transparent 60%),
+    radial-gradient(700px 400px at 85% 100%, rgba(124, 58, 237, 0.05), transparent 60%),
+    var(--paper-dim);
 }
 
 @media (max-width: 768px) {
