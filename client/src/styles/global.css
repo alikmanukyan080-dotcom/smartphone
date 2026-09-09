@@ -31,8 +31,12 @@
   --radius-lg: 16px;
 
   --shadow-sm: 0 1px 2px rgba(14, 16, 19, 0.06), 0 1px 1px rgba(14, 16, 19, 0.04);
-  --shadow-md: 0 8px 24px rgba(14, 16, 19, 0.08);
-  --shadow-lg: 0 20px 50px rgba(14, 16, 19, 0.16);
+  --shadow-md: 0 10px 30px rgba(14, 16, 19, 0.10);
+  --shadow-lg: 0 24px 60px rgba(14, 16, 19, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(37, 99, 235, 0.12), 0 12px 32px rgba(37, 99, 235, 0.16);
+
+  --gradient-signal: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --gradient-ink: linear-gradient(160deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
 
   --container: 1280px;
   --header-h: 76px;
@@ -132,12 +136,12 @@ input, select, textarea {
   font-weight: 600;
   font-size: 14.5px;
   border: 1px solid transparent;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: transform 0.2s cubic-bezier(.2,.8,.2,1), background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn-primary {
@@ -146,14 +150,19 @@ input, select, textarea {
 }
 .btn-primary:hover {
   background: var(--steel-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-signal {
-  background: var(--signal);
+  background: var(--gradient-signal);
   color: var(--white);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
 }
 .btn-signal:hover {
-  background: var(--signal-dark);
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.36);
 }
 
 .btn-outline {
@@ -222,6 +231,14 @@ input, select, textarea {
   background: var(--white);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.text-gradient {
+  background: var(--gradient-signal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .section {
