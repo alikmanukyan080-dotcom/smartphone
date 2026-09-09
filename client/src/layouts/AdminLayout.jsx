@@ -22,7 +22,7 @@ export default function AdminLayout() {
     <div className="admin-shell">
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="admin-logo">
-          NOVA<span>ADMIN</span>
+          Telvix<span>ADMIN</span>
         </div>
         <nav>
           {LINKS.map((l) => (
