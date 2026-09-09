@@ -35,7 +35,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container flex-between site-header-inner">
         <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-          NOVA<span>MOBILE</span>
+          Telvix<span>MOBILE</span>
         </Link>
 
         <nav className="main-nav">
