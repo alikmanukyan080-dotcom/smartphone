@@ -45,7 +45,7 @@ export const translations = {
     why_4_title: 'Փորձագիտական աջակցություն',
     why_4_body: 'Իրական օգնություն մարդկանցից, ովքեր հասկանում են հեռախոսներից։',
     newsletter_title: 'Իմացիր լավագույն զեղչերի մասին առաջինը',
-    newsletter_placeholder: 'you@example.com',
+    newsletter_placeholder: 'your@example.com',
     newsletter_button: 'Բաժանորդագրվել',
     newsletter_thanks: 'Շնորհակալություն — դուք բաժանորդագրված եք',
 
@@ -154,7 +154,7 @@ export const translations = {
     footer_admin: 'Ադմին մուտք',
     footer_rights: 'Բոլոր իրավունքները պաշտպանված են։',
 
-    chat_title: 'Nova Օգնական',
+    chat_title: 'Telvix Օգնական',
     chat_subtitle: 'Սովորաբար պատասխանում է անմիջապես',
     chat_placeholder: 'Հարցրեք հեռախոսի մասին…',
     chat_send: 'Ուղարկել',
