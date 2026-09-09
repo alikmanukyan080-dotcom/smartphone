@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div>
           <div className="logo logo-light">
-            NOVA<span>MOBILE</span>
+            Telvix<span>MOBILE</span>
           </div>
           <p className="text-muted" style={{ marginTop: 14, maxWidth: 280 }}>
             {t('footer_tagline')}
