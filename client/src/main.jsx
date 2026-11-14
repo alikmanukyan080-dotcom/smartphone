@@ -10,6 +10,7 @@ import { LanguageProvider } from './context/LanguageContext.jsx';
 import './styles/global.css';
 import './styles/components.css';
 import './styles/admin.css';
+import './styles/mobile-fix.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
