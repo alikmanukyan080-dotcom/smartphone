@@ -208,8 +208,130 @@
 }
 
 @media (max-width: 1024px) {
+  /* ================= Responsive ================= */
+
+.admin-backdrop { display: none; }
+.admin-topbar .mobile-only { display: none; }
+
+@media (max-width: 1024px) {
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
   .admin-form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  /* Sidebar becomes a slide-in drawer */
+  .admin-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(280px, 85vw);
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 400;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0.25s;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+  .admin-sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+  }
+  .admin-sidebar nav a {
+    padding: 14px;
+  }
+  .admin-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 399;
+  }
+
+  /* Sticky top bar with the menu button */
+  .admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    justify-content: flex-start;
+    gap: 12px;
+    height: calc(56px + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 16px 0;
+  }
+  .admin-topbar .mobile-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 22px;
+  }
+  .admin-topbar .text-muted {
+    min-width: 0;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Content spacing */
+  .admin-content {
+    padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    overflow-x: auto; /* safety net: wide content scrolls here, not the whole page */
+  }
+
+  /* Dashboard cards */
+  .stat-grid { gap: 12px; margin-bottom: 20px; }
+  .stat-card { padding: 14px; }
+  .stat-card .stat-value { font-size: 22px; }
+
+  /* Tables scroll sideways inside their wrapper */
+  .admin-table-wrap {
+    -webkit-overflow-scrolling: touch;
+  }
+  .admin-table {
+    display: table; /* overrides the generic "table" rule in mobile-fix.css */
+    min-width: 640px;
+  }
+  .admin-table th,
+  .admin-table td {
+    padding: 10px 12px;
+  }
+  .admin-table th {
+    white-space: nowrap;
+  }
+
+  /* Toolbar: stack and stretch */
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .admin-toolbar .btn,
+  .admin-toolbar input,
+  .admin-toolbar select {
+    width: 100%;
+  }
+
+  /* Forms */
+  .admin-form-section { padding: 16px; }
+  .variant-row .field {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 0;
+  }
+
+  /* Login */
+  .admin-login-card { padding: 28px 22px; }
+}
+
+@media (max-width: 360px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
 }
 @media (max-width: 860px) {
   .admin-sidebar {
