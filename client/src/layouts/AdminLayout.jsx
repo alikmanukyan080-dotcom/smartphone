@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAdminAuth } from '../context/AdminAuthContext.jsx';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
@@ -8,6 +8,14 @@ export default function AdminLayout() {
   const { t, language, setLanguage, languages } = useLanguage();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Lock page scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = sidebarOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [sidebarOpen]);
 
   const LINKS = [
     { to: '/admin/dashboard', label: t('admin_dashboard') },
@@ -20,6 +28,10 @@ export default function AdminLayout() {
 
   return (
     <div className="admin-shell">
+      {sidebarOpen && (
+        <div className="admin-backdrop" onClick={() => setSidebarOpen(false)} />
+      )}
+
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="admin-logo">
           Telvix<span>ADMIN</span>
@@ -59,13 +71,20 @@ export default function AdminLayout() {
           {t('admin_logout')}
         </button>
       </aside>
+
       <div className="admin-main">
         <div className="admin-topbar">
-          <button className="icon-btn mobile-only" onClick={() => setSidebarOpen((v) => !v)}>
+          <button
+            className="icon-btn mobile-only"
+            aria-label="Menu"
+            aria-expanded={sidebarOpen}
+            onClick={() => setSidebarOpen((v) => !v)}
+          >
             ☰
           </button>
           <div className="text-muted">
-            {t('admin_signed_in_as')} <strong style={{ color: 'var(--ink)' }}>{admin?.name}</strong>
+            {t('admin_signed_in_as')}{' '}
+            <strong style={{ color: 'var(--ink)' }}>{admin?.name}</strong>
           </div>
         </div>
         <div className="admin-content">
