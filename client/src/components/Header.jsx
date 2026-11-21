@@ -31,6 +31,16 @@ export default function Header() {
     }
   };
 
+  const langButtons = languages.map((l) => (
+    <button
+      key={l.code}
+      className={`lang-btn ${language === l.code ? 'active' : ''}`}
+      onClick={() => setLanguage(l.code)}
+    >
+      {l.label}
+    </button>
+  ));
+
   return (
     <header className="site-header">
       <div className="container flex-between site-header-inner">
@@ -47,17 +57,8 @@ export default function Header() {
         </nav>
 
         <div className="header-actions">
-          <div className="lang-switcher">
-            {languages.map((l) => (
-              <button
-                key={l.code}
-                className={`lang-btn ${language === l.code ? 'active' : ''}`}
-                onClick={() => setLanguage(l.code)}
-              >
-                {l.label}
-              </button>
-            ))}
-          </div>
+          {/* Hidden on small phones by CSS; the same buttons live in the mobile menu */}
+          <div className="lang-switcher">{langButtons}</div>
           <button
             className="icon-btn"
             aria-label="Search"
@@ -76,6 +77,7 @@ export default function Header() {
           <button
             className="icon-btn mobile-only"
             aria-label="Menu"
+            aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
           >
             <MenuIcon open={menuOpen} />
@@ -107,6 +109,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <div className="lang-switcher">{langButtons}</div>
         </div>
       )}
     </header>
