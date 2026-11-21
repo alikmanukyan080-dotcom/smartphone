@@ -207,8 +207,7 @@
   font-size: 14px;
 }
 
-@media (max-width: 1024px) {
-  /* ================= Responsive ================= */
+/* ======================= Responsive ======================= */
 
 .admin-backdrop { display: none; }
 .admin-topbar .mobile-only { display: none; }
@@ -234,6 +233,7 @@
     transform: translateX(-100%);
     visibility: hidden;
     transition: transform 0.25s ease, visibility 0.25s;
+    padding-top: calc(24px + env(safe-area-inset-top, 0px));
     padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   }
   .admin-sidebar.open {
@@ -282,21 +282,20 @@
   .admin-content {
     padding: 16px;
     padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
-    overflow-x: auto; /* safety net: wide content scrolls here, not the whole page */
+    overflow-x: hidden;
   }
 
   /* Dashboard cards */
   .stat-grid { gap: 12px; margin-bottom: 20px; }
-  .stat-card { padding: 14px; }
-  .stat-card .stat-value { font-size: 22px; }
+  .stat-card { padding: 14px; min-width: 0; }
+  .stat-card .stat-value { font-size: 22px; overflow-wrap: anywhere; }
 
-  /* Tables scroll sideways inside their wrapper */
-  .admin-table-wrap {
-    -webkit-overflow-scrolling: touch;
-  }
+  /* Tables scroll sideways by themselves (no wrapper needed) */
   .admin-table {
-    display: table; /* overrides the generic "table" rule in mobile-fix.css */
-    min-width: 640px;
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .admin-table th,
   .admin-table td {
@@ -304,6 +303,9 @@
   }
   .admin-table th {
     white-space: nowrap;
+  }
+  .admin-table td {
+    min-width: 84px;
   }
 
   /* Toolbar: stack and stretch */
@@ -331,14 +333,4 @@
 
 @media (max-width: 360px) {
   .stat-grid { grid-template-columns: 1fr; }
-}
-}
-@media (max-width: 860px) {
-  .admin-sidebar {
-    position: fixed;
-    left: -260px;
-    z-index: 400;
-    transition: left 0.2s ease;
-  }
-  .admin-sidebar.open { left: 0; }
 }
