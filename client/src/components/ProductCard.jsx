@@ -8,11 +8,13 @@ export default function ProductCard({ product }) {
   const { t } = useLanguage();
   const [hoverIndex, setHoverIndex] = useState(0);
   const fav = isFavorite(product._id);
+
   const totalStock =
-  product.storageOptions?.reduce((s, o) => s + (o.stock || 0), 0) ||
-  product.colors?.reduce((s, c) => s + (c.stock || 0), 0) ||
-  product.stock || 0;
-const outOfStock = totalStock <= 0;
+    product.storageOptions?.reduce((s, o) => s + (o.stock || 0), 0) ||
+    product.colors?.reduce((s, c) => s + (c.stock || 0), 0) ||
+    product.stock ||
+    0;
+  const outOfStock = totalStock <= 0;
 
   const images =
     product.colors?.[hoverIndex]?.images?.length
@@ -44,7 +46,12 @@ const outOfStock = totalStock <= 0;
         )}
 
         <Link to={`/phones/${product.slug}`}>
-          <img src={images?.[0]} alt={product.title} loading="lazy" className={outOfStock ? 'img-faded' : ''} />
+          <img
+            src={images?.[0]}
+            alt={product.title}
+            loading="lazy"
+            className={outOfStock ? 'img-faded' : ''}
+          />
         </Link>
 
         {outOfStock && (
@@ -69,6 +76,7 @@ const outOfStock = totalStock <= 0;
                 style={{ background: c.hex }}
                 title={c.name}
                 onMouseEnter={() => setHoverIndex(idx)}
+                onClick={() => setHoverIndex(idx)}
               />
             ))}
           </div>
@@ -104,7 +112,14 @@ const outOfStock = totalStock <= 0;
 
 function HeartIcon({ filled }) {
   return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      fill={filled ? 'currentColor' : 'none'}
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z" />
     </svg>
   );
